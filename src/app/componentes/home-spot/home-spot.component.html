@@ -1,0 +1,118 @@
+<body>
+  <header class="header">
+    <a href="#" class="logo">
+        <i class="fab fa-spotify" (click)="resetForm()"></i>Spotify
+    </a>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#browse">Browse</a>
+        <a href="#library">Library</a>
+        <a href="#premium">Premium</a>
+        <a href="#contact">Contato</a>
+    </nav>
+    <div class="search-box">
+       <input type="text" class="search-input"
+      [(ngModel)]="query"
+      (ngModelChange)="onInputChange($event)"
+       placeholder="Buscar artista" />
+      <a (click)="search()" class="btn">Buscar</a>
+    </div>
+</header>
+
+<div class="layout">
+  <aside>
+    <!-- conteúdo da sidebar -->
+     <div class="sidebar-header">
+      <h2>Sua Biblioteca</h2>
+      <button class="btn-criar">+ Criar</button>
+    </div>
+
+    <div class="sidebar-tabs">
+      <button class="tab active">Playlists</button>
+      <button class="tab">Álbuns</button>
+    </div>
+
+    <div class="playlist-list">
+      <div class="playlist-card liked">
+        <img src="assets/img/pity.png" />
+        <div class="card-info">
+          <h3>Músicas Curtidas</h3>
+          <p>Playlist • 7 músicas</p>
+        </div>
+      </div>
+
+      <div class="playlist-card">
+        <img src="assets/img/sam.png" />
+        <div class="card-info">
+          <h3>Hotline Bling</h3>
+          <p>Playlist • taina-correa195</p>
+        </div>
+      </div>
+    </div>
+    <div class="playlist-card liked">
+        <img src="assets/img/xc.png" />
+        <div class="card-info">
+          <h3>Músicas Curtidas</h3>
+          <p>Playlist • 7 músicas</p>
+        </div>
+      </div>
+      <div class="playlist-card liked">
+        <img src="assets/img/anac.png" />
+        <div class="card-info">
+          <h3>Músicas Curtidas</h3>
+          <p>Playlist • 7 músicas</p>
+        </div>
+      </div>
+  </aside>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content-home">
+      <main>
+        <!-- Resultados de pesquisa -->
+        <section class="section" *ngIf="query && !selectedArtist && !selectedAlbum">
+          <h2 class="section-title">Resultados da Pesquisa</h2>
+          <div class="card-grid">
+            <div class="card" *ngFor="let artist of artists">
+              <img *ngIf="artist.images.length" [src]="artist.images[0].url" />
+              <div class="card-body">
+                <h5>{{ artist.name }}</h5>
+                <p>Seguidores: {{ artist.followers.total | number }}</p>
+              </div>
+              <button (click)="viewArtist(artist.id)" class="play-btn">
+                <i class="fa fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="pagination">
+            <button class="btn" (click)="prevPage()" [disabled]="offset===0">⬅ Anterior</button>
+            <button class="btn" (click)="nextPage()">Próximo ➡</button>
+          </div>
+        </section>
+
+        <!-- Novos Lançamentos -->
+        <h2 class="section-title" *ngIf="!query">Novos Lançamentos</h2>
+        <section *ngIf="!query && !selectedArtist && !selectedAlbum">
+          <div class="card-grid">
+            <div class="card" *ngFor="let album of albums">
+              <img *ngIf="album.images.length" [src]="album.images[0].url" />
+              <div class="card-body">
+                <h5>{{ album.name }}</h5>
+              </div>
+              <button (click)="viewAlbum(album.id)" class="play-btn">
+                <i class="fa fa-play"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <app-artist-detail *ngIf="selectedArtist" [artistId]="selectedArtist"></app-artist-detail>
+        <app-album-detail *ngIf="selectedAlbum" [albumId]="selectedAlbum"></app-album-detail>
+      </main>
+    </div>
+  </div>
+
+ <footer>© 2025 Spotify Clone</footer>
+
+</body>

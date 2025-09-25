@@ -1,0 +1,45 @@
+<main>
+  <div *ngIf="artist" class="artist-detail">
+    <!-- Cabeçalho do artista -->
+    <div class="artist-header">
+      <img
+        *ngIf="artist.images.length"
+        [src]="artist.images[0].url"
+        alt="{{ artist.name }}"
+        class="artist-img"
+      />
+      <div class="artist-info">
+        <h2>{{ artist.name }}</h2>
+        <p class="artist-followers">{{ artist.followers.total | number }} seguidores</p>
+        <p class="artist-genres">{{ artist.genres.join(', ') }}</p>
+      </div>
+    </div>
+
+    <!-- Lista de álbuns -->
+    <h3 class="section-title">Álbuns</h3>
+    <div class="album-grid">
+      <div *ngFor="let album of albums" class="album-card" (click)="selectAlbum(album.id)" style="cursor: pointer;">
+        <div class="album-img-wrapper">
+          <img
+            *ngIf="album.images.length"
+            [src]="album.images[0].url"
+            [alt]="album.name"
+            class="album-img"
+          />
+        </div>
+        <div class="album-info">
+          <h4 class="album-name">{{ album.name }}</h4>
+          <p class="album-date">{{ album.release_date | date: 'yyyy' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal do álbum -->
+  <div class="album-modal" *ngIf="selectedAlbumId">
+    <div class="album-modal-content">
+      <button class="close-btn" (click)="closeAlbum()">X</button>
+      <app-album-detail [albumId]="selectedAlbumId"></app-album-detail>
+    </div>
+  </div>
+</main>

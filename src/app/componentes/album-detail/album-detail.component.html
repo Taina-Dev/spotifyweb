@@ -1,0 +1,26 @@
+<div *ngIf="album" class="album-detail">
+  <!-- Cabeçalho do Álbum -->
+  <div class="album-header">
+    <img
+      *ngIf="album.images.length"
+      [src]="album.images[0].url"
+      alt="{{ album.name }}"
+      class="album-cover"
+    />
+    <div class="album-info">
+      <h2 class="album-name">{{ album.name }}</h2>
+      <p class="album-meta">Lançado em {{ album.release_date | date:'yyyy' }}</p>
+      <p class="album-meta">{{ album.total_tracks }} faixas</p>
+    </div>
+  </div>
+
+  <!-- Lista de faixas -->
+  <h3 class="section-title">Faixas</h3>
+  <ul class="track-list">
+    <li *ngFor="let track of tracks" class="track-item">
+      <span class="track-number">{{ track.track_number }}</span>
+      <span class="track-name">{{ track.name }}</span>
+      <a class="play-btn" title="Tocar"><i class="fa fa-play"></i></a>
+    </li>
+  </ul>
+</div>
