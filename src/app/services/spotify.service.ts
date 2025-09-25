@@ -7,8 +7,8 @@ import { Observable, of, map, catchError, switchMap } from 'rxjs';
 })
 export class SpotifyService {
 
- private clientId = '5365e24c6a4347c38b1b5656687ed3ff';
-  private clientSecret = 'e25f8acdb175473c84ad5bd8b0581a00';
+ private clientId = '';
+  private clientSecret = '';
   private tokenUrl = 'https://accounts.spotify.com/api/token';
   private accessToken: string = '';
 private apiUrl = 'https://api.spotify.com/v1';
