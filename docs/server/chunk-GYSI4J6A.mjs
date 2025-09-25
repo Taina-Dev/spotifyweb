@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{a as e,b as r,c as p,j as n,l as i,m,p as f,t as s,w as a}from"./chunk-KPHL5UJY.mjs";var c=(()=>{class o{static{this.\u0275fac=function(t){return new(t||o)}}static{this.\u0275cmp=e({type:o,selectors:[["app-root"]],standalone:!0,features:[p],decls:1,vars:0,template:function(t,x){t&1&&r(0,"router-outlet")},dependencies:[s]})}}return o})();var d=[];var u={providers:[a(d),m()]};var g={providers:[f()]},l=n(u,g);var C=()=>i(c,l),q=C;export{q as a};
