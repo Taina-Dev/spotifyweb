@@ -1,27 +1,91 @@
-# SpotifyClone
+🎵 SpotifyClone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Clone do Spotify desenvolvido em Angular 17, consumindo a API do Spotify para listar artistas, álbuns, músicas e playlists.
+O projeto foi criado com foco em responsividade, design moderno e aprendizado prático de integração com APIs externas.
 
-## Development server
+🚀 Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+🔍 Busca de artistas em tempo real.
 
-## Code scaffolding
+👤 Detalhes de artista: informações como seguidores e popularidade.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+💿 Listagem de álbuns de um artista.
 
-## Build
+🎶 Faixas de um álbum, com opção de visualizar detalhes.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+📂 Playlists públicas simuladas no layout.
 
-## Running unit tests
+📱 Layout responsivo (cards e seções se adaptam a qualquer tela).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+🎨 Interface inspirada no Spotify Web.
 
-## Running end-to-end tests
+🛠️ Tecnologias Utilizadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Angular 17
+ – Framework principal.
 
-## Further help
+RxJS
+ – Para lidar com programação reativa.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Spotify Web API
+ – API usada para trazer os dados reais.
+
+[Bootstrap / CSS Grid / Flexbox] – Para responsividade e layout.
+
+FontAwesome
+ – Ícones.
+
+📂 Estrutura do Projeto
+
+src/app/services/spotify.service.ts → Conexão com a API do Spotify.
+
+src/app/components/artist-detail/ → Tela de detalhe do artista.
+
+src/app/components/home-spot/ → Página inicial com artistas, álbuns e playlists.
+
+src/assets/ → Imagens e arquivos estáticos.
+
+⚡ Como rodar o projeto localmente
+
+Clone o repositório:
+
+git clone https://github.com/Taina-Dev/spotifyweb.git
+cd spotifyweb
+
+
+Instale as dependências:
+
+npm install
+
+
+Rode o servidor local:
+
+ng serve
+
+
+Acesse em http://localhost:4200
+.
+
+🏗️ Build para Produção
+
+Para gerar os arquivos otimizados de produção:
+
+ng build --configuration production
+
+
+Os arquivos serão gerados em dist/spotify-clone/.
+
+🌐 Deploy no GitHub Pages
+
+Este projeto está hospedado em:
+👉 SpotifyClone no GitHub Pages
+
+📌 Próximos Passos (Melhorias Futuras)
+
+Player funcional com preview das músicas.
+
+Login via conta Spotify (OAuth2).
+
+Sistema de playlists personalizadas.
+
+⚡ Desenvolvido para fins de estudo e prática com Angular + API do Spotify.
